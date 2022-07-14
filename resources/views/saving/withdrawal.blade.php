@@ -22,13 +22,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6 text-center">
+                            {{-- <div class="col-6 text-center">
                                 <button class="btn btn-danger btn-block" data-toggle="modal" data-target="#addWithdrawal"><i
                                         class="fas fa-wallet"></i>
                                     Penarikan Tabungan
                                 </button>
-                            </div>
-                            <div class="col-6 text-center">
+                            </div> --}}
+                            <div class="col-12 text-center">
                                 <a href="/my/saving" class="btn btn-success btn-block"><i
                                         class="fas fa-plus"></i>
                                     Menabung
@@ -39,7 +39,7 @@
 
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body">
+                {{-- <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
@@ -77,7 +77,7 @@
                         @endforeach
                         </tbody>
                     </table>
-                </div>
+                </div> --}}
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -87,7 +87,7 @@
         <!-- /.row -->
     </section>
 
-    <div id="addWithdrawal" class="modal fade" role="dialog">
+    {{-- <div id="addWithdrawal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -116,5 +116,5 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
 @stop

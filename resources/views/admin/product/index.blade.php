@@ -19,7 +19,7 @@
                             <thead>
                             <tr>
                                 <th>Nama</th>
-                                <th>Ringkasan</th>
+                                <th>Jenis</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -64,7 +64,7 @@
                             <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label>Ringkasan</label>
+                            <label>Jenis</label>
                             <textarea class="form-control" rows="3" name="summary" required></textarea>
                         </div>
                         <div class="form-group">

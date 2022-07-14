@@ -10,7 +10,7 @@
                             <h3 class="card-title">Konfirmasi Pembayaran</h3>
                         </div>
                         <div class="card-body">
-                            <h4 class="text-center">Total Payment</h4>
+                            <h4 class="text-center">Total Pembayaran</h4>
                             <h2 class="text-center">{{ formatPrice($transaction['amount']) }}</h2>
                             <p>No. Rekening Peternakan Ibrahim Dadong Awok</p>
                             <p>Nama Bank: BCA</p>

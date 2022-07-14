@@ -24,7 +24,7 @@
                                             <td colspan="2">{{ $product['name'] }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Ringkasan</td>
+                                            <td>Jenis</td>
                                             <td colspan="2">{{ $product['summary'] }}</td>
                                         </tr>
                                         <tr>
@@ -103,19 +103,19 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Product Variant</h4>
+                    <h4 class="modal-title">Tambahkan Jenis Produk</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <form action="{{ route('productVariant.add', $product['id']) }}" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         @csrf
                         <div class="form-group">
-                            <label>Image</label>
+                            <label>Gambar</label>
                             <input name="image" type="file" class="form-control"
                                    accept="image/*" required>
                         </div>
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Nama</label>
                             <input type="text" min="0" class="form-control" name="name" required>
                         </div>
                         <div class="form-group">
@@ -123,11 +123,11 @@
                             <input type="text" min="0" class="form-control" name="detail" required>
                         </div>
                         <div class="form-group">
-                            <label>Price</label>
+                            <label>Harga</label>
                             <input type="number" min="0" class="form-control" name="price" required>
                         </div>
                         <div class="form-group">
-                            <label>Stock</label>
+                            <label>Stok</label>
                             <input type="number" min="0" class="form-control" name="stock" required>
                         </div>
 
@@ -149,7 +149,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Update Image</h4>
+                    <h4 class="modal-title">Update Gambar</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <form id="updateImg" action="#" method="POST" enctype="multipart/form-data">
@@ -158,7 +158,7 @@
                         <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" name="stock" id="stockVariant" value="0">
                         <div class="form-group">
-                            <label>Image</label>
+                            <label>Gambar</label>
                             <input name="image" type="file" class="form-control"
                                    accept="image/*" required>
                         </div>

@@ -36,11 +36,6 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="#" class="brand-link">
-            <img src="/dist/img/AdminLTELogo.jpeg" alt="" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">{{ env('APP_NAME') }}</span>
-        </a>
 
         <!-- Sidebar -->
         <div class="sidebar">
@@ -100,12 +95,12 @@
                               <p>Penyetoran Tabungan Pelanggan</p>
                             </a>
                           </li>
-                          <li class="nav-item">
+                          {{-- <li class="nav-item">
                             <a href="{{ route('withdrawal.index') }}" class="nav-link">
                               <i class="far fa-edit nav-icon"></i>
                               <p>Penarikan Tabungan Pelanggan</p>
                             </a>
-                          </li>
+                          </li> --}}
                           <li class="nav-item">
                             <a href="{{ route('datasaving.index') }}" class="nav-link">
                               <i class="far fa-user nav-icon"></i>
@@ -156,7 +151,7 @@
     @include('layouts.notification')
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2022 <a href="#">{{ env('APP_NAME') }}</a>.</strong>
+        <strong>Copyright &copy; 2022 - Peternakan Ibrahim Dadong Awok with <a href="#">{{ env('APP_NAME') }}</a>.</strong>
         All rights reserved.
     </footer>
 

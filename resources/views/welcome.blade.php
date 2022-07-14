@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="html 5 template">
     <meta name="author" content="">
-    <title>FindHouses - HTML5 Template</title>
+    <title>Proyek Akhir - Aplikasi Tabungan</title>
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="/landing/favicon.ico">
     <link rel="stylesheet" href="/landing/css/jquery-ui.css">
@@ -48,7 +48,7 @@
                 <div class="left-side">
                     <!-- Logo -->
                     <div id="logo">
-                        <a href="index.html"><img src="/landing/images/logo-white-1.svg"
+                        <a href="index.html"><img src="/landing/images/logo-peternakan.jpeg"
                                                   style="margin-left: auto; margin-right: auto"
                                                   data-sticky-logo="images/logo-purple.svg" alt=""></a>
                     </div>
@@ -56,9 +56,9 @@
                     <nav id="navigation" class="style-1 head-tr">
                         <ul id="responsive">
                             <li><a href="#">Beranda</a></li>
-                            <li><a href="#">Produk</a></li>
-                            <li><a href="#">Tentang</a></li>
-                            <li><a href="#">Kontak</a></li>
+                            <li><a href="#produk">Produk</a></li>
+                            <li><a href="#tentang">Tentang</a></li>
+                            <li><a href="#kontak">Kontak</a></li>
                         </ul>
                     </nav>
                     <!-- Main Navigation / End -->
@@ -79,7 +79,7 @@
     <div class="clearfix"></div>
     <!-- Header Container / End -->
 
-    <!-- START SECTION INFO-HELP -->
+    <!-- START SECTION Info -->
     <section class="info-help h17">
         <div class="container">
             <div class="row info-head">
@@ -98,14 +98,15 @@
             </div>
         </div>
     </section>
-    <!-- END SECTION INFO-HELP -->
+    <!-- END SECTION Info -->
 
-    <!-- START SECTION PROPERTIES FOR SALE -->
+    <!-- START SECTION Promosi -->
     @foreach($products as $product)
-    <section class="featured portfolio bg-white-2 rec-pro">
+    <section class="featured portfolio bg-white-2 rec-pro" id="produk">
         <div class="container-fluid">
             <div class="sec-title">
                 <h2><span>{{ $product['name'] }}</span></h2>
+                <h5>{{ $product['description']}}</h5>
             </div>
             <div class="portfolio col-xl-12">
                 <div class="slick-lancers2">
@@ -150,75 +151,77 @@
             </div>
         </div>
     </section>
-    <!-- END SECTION PROPERTIES FOR SALE -->
+    <!-- END SECTION Promosi -->
     @endforeach
 
-    <!-- START SECTION WHY CHOOSE US -->
-    <section class="how-it-works bg-white">
+    {{-- <center><h2>KAMBING GIBAS</p></center> --}}
+
+    <!-- START SECTION Mengapa memilih kami -->
+    <section class="how-it-works bg-white" id="tentang">
         <div class="container">
             <div class="sec-title">
-                <h2><span>Why </span>Choose Us</h2>
-                <p>We provide full service at every step.</p>
+                <h2><span>MENGAPA </span>MEMILIH KAMI</h2>
+                <h5>Kami menyediakan layanan penuh di setiap langkah</h5>
             </div>
             <div class="row service-1">
                 <article class="col-lg-4 col-md-6 col-xs-12 serv" data-aos="zoom-in" data-aos-delay="150">
                     <div class="serv-flex">
                         <div class="art-1 img-13">
                             <img src="/landing/images/icons/icon-12.jpeg" alt="">
-                            <h3>Jagoan Tani 2021</h3>
+                            <h3>Pembelian kambing dan paket aqiqah lebih mudah</h3>
                         </div>
                         <div class="service-text-p">
-                            <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur
-                                debits adipisicing lacus consectetur Business Directory.</p>
+                            <p class="text-center">Pembelian kambing dan paket aqiqah di Peternakan Ibrahim Dadong Awok melalui website sangat memudahkan pelanggan
+                                untuk proses pembelian produk, sehingga pelanggan tidak harus mendatangi peternakan. juga terdapat fitur menabung yang memudahkan pelanggan dalam pembelian kambing </p>
                         </div>
                     </div>
                 </article>
                 <article class="col-lg-4 col-md-6 col-xs-12 serv" data-aos="zoom-in" data-aos-delay="250">
                     <div class="serv-flex">
                         <div class="art-1 img-14">
-                            <img src="/landing/images/icons/icon-13.svg" alt="">
-                            <h3>Trusted by thousands</h3>
+                            <img src="/landing/images/icons/icon-35.jpeg" alt="">
+                            <h3>Dipercaya banyak orang</h3>
                         </div>
                         <div class="service-text-p">
-                            <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur
-                                debits adipisicing lacus consectetur Business Directory.</p>
+                            <p class="text-center"> Peternakan Ibrahim Dadong Awok merupakan peternakan modern yang terpercaya,
+                                melayani pembelian kambing dan paket aqiqah siap saji. Pelanggan bisa sharing atau bertukar pengalaman mengenai perjalanan/proses beternak kambing</p>
                         </div>
                     </div>
                 </article>
                 <article class="col-lg-4 col-md-6 col-xs-12 serv mb-0 pt" data-aos="zoom-in" data-aos-delay="350">
                     <div class="serv-flex arrow">
                         <div class="art-1 img-15">
-                            <img src="/landing/images/icons/icon-14.svg" alt="">
-                            <h3>Financing made easy</h3>
+                            <img src="/landing/images/icons/icon-34.jpeg" alt="">
+                            <h3>Bekerja sesuai Syariat Islam</h3>
                         </div>
                         <div class="service-text-p">
-                            <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur
-                                debits adipisicing lacus consectetur Business Directory.</p>
+                            <p class="text-center">Peternakan Ibrahim Dadong Awok mulai merintis usaha bekerja sesuai syariat islam.
+                                Kambing qurban harus berumur 1 tahun atau memasuki tahun kedua.</p>
                         </div>
                     </div>
                 </article>
             </div>
         </div>
     </section>
-    <!-- END SECTION WHY CHOOSE US -->
+    <!-- END SECTION Mengapa Memilih Kami -->
 
-    <section class="bg-white-2 col-md-12">
+    <section class="bg-white-2 col-md-12" id="kontak">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <br>
-                    <h2 style="text-align: center"><span></span>Term And Police</h2>
-                    <p style="text-align: center">Aeokepoeke</p>
-                    <p>Alloooo</p>
-                    <p>Alloooo</p>
-                    <p>Alloooo</p>
-                    <p>Alloooo</p>
-                    <p>Alloooo</p>
+                    <h2 style="text-align: center"><span></span>Syarat & Ketentuan</h2>
+                    <p style="text-align: center">Syarat dan ketentuan pembelian kambing dan aqiqah</p>
+                    <p>1. Pelanggan wajib mengisi data tabungan qurban dengan lengkap dan benar</p>
+                    <p>2. Jika pelanggan sudah menabung akan tetapi tidak dapat membeli hewan qurban tahun ini, maka mengikuti tabungan tahun berikutnya</p>
+                    <p>3. Pelunasan pembelian hewan qurban paling lambat 1 (satu) bulan sebelum Idul Adha</p>
+                    <p>4. Free ongkos kirim pengiriman produk area Bangorejo, Purwoharjo, Cluring, dan Gambiran</p>
+                    <p></p>
                 </div>
                 <div class="col-md-6">
                     <br>
                     <h2 style="text-align: center"><span></span>Map</h2>
-                    <p style="text-align: center">We Location At</p>
+                    <p style="text-align: center">Lokasi Peternakan Ibrahim Dadong Awok</p>
                     <p style="text-align: center">
                     <iframe style="border: 0; height: 300px; width: 500px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.2916739136012!2d114.18899041433419!3d-8.470992388006305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd3ff29ff467837%3A0x10f5137e72c768b6!2sjual%20beli%20kambing%20IBRAHIM!5e0!3m2!1sen!2sid!4v1649763237184!5m2!1sen!2sid"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </p>
@@ -233,12 +236,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 col-md-6">
-                        <div class="netabout">
-                            <a href="index.html" class="logo">
-                                {{-- <img src="#" alt="netcom"> --}}
-                            </a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt architecto soluta
-                                laboriosam, perspiciatis, aspernatur officiis esse.</p>
+                        <div class="netabout" style="color: white;">
+                                    <img src="/landing/images/logo-peternakan.jpeg" style="width: 50px;height: 50px;">
+                                     &nbsp; PETERNAKAN IBRAHIM DADONG AWOK
+                                        <p class="in-p">Peternakan Ibrahim Dadong Awok merupakan peternakan modern yang berada di Bangorejo, Banyuwangi.
+                                            Peternakan ini melayani pembelian kambing dan paket aqiqah, juga melayani tabungan qurban setiap tahun.
+                                        </p>
                         </div>
                         <div class="contactus">
                             <ul>
@@ -265,21 +268,21 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="newsletters">
-                            <h3>Newsletters</h3>
-                            <p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in
-                                your inbox.</p>
+                            <h3>INFORMASI</h3>
+                            <p>Kunjungi youtube kami dan subscribe agar bisa melihat lebih banyak konten dari channel kami.
+                                </p>
                         </div>
-                        <a href="https://www.youtube.com/c/IbrahimDADONGAWOKfarm" class="btn btn-success">Subscrabe</a>
+                        <a href="https://www.youtube.com/c/IbrahimDADONGAWOKfarm" class="btn btn-success">Subscribe</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="second-footer">
             <div class="container">
-                <p>2022 © Copyright {{ env('APP_NAME') }} - All Rights Reserved.</p>
+                <p>2022 © Copyright Peternakan Ibrahim Dadong Awok with {{ env('APP_NAME') }} - All Rights Reserved.</p>
                 <ul class="netsocials">
                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    {{-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> --}}
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="https://www.youtube.com/c/IbrahimDADONGAWOKfarm"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
                 </ul>

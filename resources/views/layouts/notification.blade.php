@@ -10,7 +10,7 @@
     @else
         <script>
             Swal.fire(
-                'Success',
+                'Berhasil',
                 '{!! session("message") !!}',
                 'success'
             );

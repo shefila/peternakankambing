@@ -296,7 +296,7 @@ a.button.border, a.button {
     color: #fff;
 }
 #navigation.style-1.head-tr ul li a {
-    color: #000000;
+    color: #ffffff;
 }
 #navigation.style-2.cloned .sticky-logo {
     display: inline-block;
@@ -1339,9 +1339,9 @@ em.mm-counter+a.mm-fullsubopen+span {
     bottom: -10px;
     outline: none;
 }
-transform: rotate(-90deg);
+/* transform: rotate(-90deg); */
 
-}
+
 /* Animation */
 .hamburger--collapse .hamburger-inner {
     top: auto;

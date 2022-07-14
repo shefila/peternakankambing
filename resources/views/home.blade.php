@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title') Product @stop
+@section('title') Produk @stop
 
 @section('content')
     <section>
@@ -34,8 +34,8 @@
                                                     <div class="row">
                                                         <div class="col-12 text-left">
                                                             <p><i class="fas fa-info-circle"></i> Detail : {{ $productDetail['detail'] }}</p>
-                                                            <p><i class="fas fa-box"></i> Stock : {{ $productDetail['stock'] }}</p>
-                                                            <p><i class="fas fa-coins"></i> Price : {{ formatPrice($productDetail['price']) }}</p>
+                                                            <p><i class="fas fa-box"></i> Stok : {{ $productDetail['stock'] }}</p>
+                                                            <p><i class="fas fa-coins"></i> Harga : {{ formatPrice($productDetail['price']) }}</p>
                                                         </div>
                                                     </div>
                                                 </div>

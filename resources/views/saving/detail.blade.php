@@ -60,7 +60,7 @@
                         <div class="progress-bar progress-bar-success" role="progressbar"
                              aria-valuenow="{{ $saving['progress_percent'] }}" aria-valuemin="0" aria-valuemax="100"
                              style="width:{{ $saving['progress_percent'] }}%"> {{ $saving['progress_percent'] }}%
-                            Complete
+                            Selesai
                         </div>
                     </div>
                 </div>
