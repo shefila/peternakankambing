@@ -98,7 +98,7 @@
                                         </a>
                                         <a href="{{ route('my.saving.cancel', $transaction['id']) }}"
                                            class="btn btn-danger">
-                                            <i class="fas fa-trash"></i> cancel
+                                            <i class="fas fa-trash"></i> Batal
                                         </a>
                                     @endif
                                 </td>
@@ -135,8 +135,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Mulai</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-success">Kirim</button>
                     </div>
                 </form>
             </div>

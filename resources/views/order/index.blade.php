@@ -8,7 +8,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h1>Stok Kambing lagi banyak, buruan di order</h1>
+                        <h1>Stok Kambing lagi banyak, Beli sekarang</h1>
                         <a href="{{ route('my.order.new') }}" class="btn btn-success">Beli sekarang</a>
                     </div>
                 </div>

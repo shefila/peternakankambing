@@ -11,7 +11,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <h4>
-                                    <i class="fas fa-shipping-fast"></i> {{ env('APP_NAME') }}
+                                    {{-- <i class="fas fa-shipping-fast"></i> {{ env('APP_NAME') }} --}}
+                                    <i class="fas fa-shipping-fast"></i> Peternakan Ibrahim Dadong Awok
                                     <small class="float-right">Tanggal: {{ $order->created_at->format('d-F-Y') }}</small>
                                 </h4>
                             </div>
@@ -22,7 +23,8 @@
                             <div class="col-sm-4 invoice-col">
                                 Dari
                                 <address>
-                                    <strong>{{ env('APP_NAME') }}.</strong><br>
+                                    {{-- <strong>{{ env('APP_NAME') }}.</strong><br> --}}
+                                    <strong>Peternakan Ibrahim Dadong Awok</strong><br>
                                     Dusun Ngadirejo, RT. 02 RW.04<br>
                                     Bangorejo, Banyuwangi, Jawa Timur<br>
                                     Telepon: (+62) 852 5722 9478<br>

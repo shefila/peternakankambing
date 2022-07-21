@@ -116,7 +116,7 @@
                         <a href="#" class="nav-link" onclick="$('#form-logout').submit()">
                             <i class="nav-icon fas fa-power-off"></i>
                             <p>
-                                Logout
+                                Keluar
                             </p>
                         </a>
                     </li>
@@ -150,8 +150,12 @@
     </div>
     @include('layouts.notification')
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    {{-- <footer class="main-footer">
         <strong>Copyright &copy; 2022 - Peternakan Ibrahim Dadong Awok with <a href="#">{{ env('APP_NAME') }}</a>.</strong>
+        All rights reserved.
+    </footer> --}}
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2022 - Peternakan Ibrahim Dadong Awok.</strong>
         All rights reserved.
     </footer>
 

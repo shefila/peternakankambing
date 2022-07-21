@@ -44,7 +44,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Saving</h4>
+                    <h4 class="modal-title">Tabungan</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <form action="{{ route('my.saving.store') }}" method="POST">
@@ -55,11 +55,11 @@
                             <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label>Nominal yang ingin di capai</label>
+                            <label>Nominal yang ingin dicapai</label>
                             <input type="number" min="0" class="form-control" name="target" required>
                         </div>
                         <div class="form-group">
-                            <label>Waktu yang ingin di capai</label>
+                            <label>Waktu yang ingin dicapai</label>
                             <input type="date" class="form-control" name="due_date" required>
                         </div>
                         <div class="form-group">
@@ -74,8 +74,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-success">Kirim</button>
                     </div>
                 </form>
             </div>
