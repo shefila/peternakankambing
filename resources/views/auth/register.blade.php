@@ -3,12 +3,12 @@
 @section('content')
     <div class="card">
         <div class="card-body register-card-body">
-            <p class="login-box-msg">Register a new membership</p>
+            <p class="login-box-msg">Daftar akun baru</p>
 
             <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Full name" required name="name">
+                    <input type="text" class="form-control" placeholder="Nama lengkap" required name="name">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password" required name="password">
+                    <input type="password" class="form-control" placeholder="Kata Sandi" required name="password">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Retype password" required name="password_confirmation">
+                    <input type="password" class="form-control" placeholder="Ulangi Kata Sandi" required name="password_confirmation">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -45,13 +45,13 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <button type="submit" class="btn btn-primary btn-block">Daftar</button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
 
-            <a href="{{ route('login') }}" class="text-center">I already have a membership</a>
+            <a href="{{ route('login') }}" class="text-center">Sudah memiliki akun</a>
         </div>
         <!-- /.form-box -->
     </div>

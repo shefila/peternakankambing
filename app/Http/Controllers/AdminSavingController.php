@@ -25,6 +25,6 @@ class AdminSavingController extends Controller
         $transaction['status'] = $request['status'];
         $transaction->save();
 
-        return redirect()->back()->withMessage('Status Updated');
+        return redirect()->back()->withMessage('Status Diubah');
     }
 }

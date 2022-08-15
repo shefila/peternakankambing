@@ -20,10 +20,10 @@
                             <form action="{{ route('my.order.detail.upload.save', $order['id']) }}" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_method" value="PATCH">
                                 @csrf
-                                <label>Upload Bukti Transfer</label>
+                                <label>Unggah Bukti Transfer</label>
                                 <input type="file" name="payment_proof" class="form-control" id="fileToUpload">
                                 <br>
-                                <button type="submit" class="btn btn-primary">Upload</button>
+                                <button type="submit" class="btn btn-primary">Unggah</button>
                             </form>
                         </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Saving;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Throwable;
 
 class SavingController extends Controller
 {
@@ -13,7 +14,15 @@ class SavingController extends Controller
         $user = $request->user();
         $savings = $user->savings;
         $wallet= $user->wallet;
-        return view('saving.index', compact('savings','wallet'));
+        try {
+            $idulAdha = getIdulAdha()->format('d F Y');
+            $dueDate = getIdulAdha()->subMonth();
+        } catch (\Throwable $th) {
+            $idulAdha = '<i style="color: red">Maaf internetnya mati</i>';
+            $dueDate = null;
+        }
+        $hasSaving = $user->savings()->where('created_at','<',getIdulAdha())->where('due_date','>',now())->exists();
+        return view('saving.index', compact('savings','wallet','idulAdha','dueDate','hasSaving'));
     }
 
     public function store(Request $request)
@@ -21,11 +30,26 @@ class SavingController extends Controller
         $request->validate([
             "name" => "required|string",
             "target" => "required|integer|min:100000",
-            "due_date" => "required|date|after:" . date('Y-m-d'),
             "period" => "required|string|in:daily,weekly,monthly",
         ]);
-
         $user = $request->user();
+
+        try{
+            $idulAdha = getIdulAdha();
+            $dueDate = getIdulAdha()->subMonth()->format('Y-m-d');
+        } catch(Throwable $th){
+            return redirect()->back()->withErrors('Maaf internetnya mati');
+        }
+
+        if($user->savings()->where('created_at','<',$idulAdha)->where('due_date','>',now())->exists()){
+            return redirect()->back()->withErrors('Anda sudah punya tabungan untuk idul adha');
+        }
+
+        if(now() > $dueDate){
+            return redirect()->back()->withErrors('Mohon maaf, harap menunggu setelah idul adha');
+        }
+
+        $request['due_date'] = $dueDate;
         $user->savings()->create($request->except('_token'));
 
         return redirect()->back()->withMessage('Tabungan baru telah dibuat, Selamat menabung');
@@ -43,10 +67,14 @@ class SavingController extends Controller
             "amount" => "required|integer|min:10000",
         ]);
 
+        if($saving['due_date'] < now()){
+            return redirect()->back()->withErrors('Tabungan expired');
+        }
+
         $user = $request->user();
         $wallet = $user->wallet;
         if($user->orders()->where('status','pending_payment')->exists()){
-            return redirect()->back()->withErrors('Selesaikan Order Anda Dahulu');
+            return redirect()->back()->withErrors('Selesaikan Pesanan Anda Dahulu');
         }
         $data = $request->except('_token');
         $data['saving_id'] = $saving['id'];
@@ -98,6 +126,6 @@ class SavingController extends Controller
         $transaction['status'] = Transaction::STATUS_WAITING_APPROVAL;
         $transaction->save();
 
-        return redirect()->route('my.saving.detail', $transaction['saving_id'])->withMessage('Payment proof uploaded');
+        return redirect()->route('my.saving.detail', $transaction['saving_id'])->withMessage('Bukti Transfer Berhasil Diunggah');
     }
 }

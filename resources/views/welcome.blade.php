@@ -67,7 +67,11 @@
                 <div class="right-side d-none d-none d-lg-none d-xl-flex" style="margin-right: 10px">
                     <!-- Header Widget -->
                     <div class="header-widget">
+                        @if(auth()->user())
+                        <a href="{{ auth()->user()['is_admin']?'/order':'/my/order/new' }}" class="button border text-center" style="color: #3446eb"><i class="fas fa-lock ml-2"></i> Dashboard</a>
+                        @else
                         <a href="/login" class="button border text-center" style="color: #3446eb"><i class="fas fa-lock ml-2"></i> Login</a>
+                        @endif
                     </div>
                     <!-- Header Widget / End -->
                 </div>
@@ -90,7 +94,11 @@
                         <p class="pt-2">
                             Rekomendasi membeli Kambing Untuk Qurban Dan Aqiqah</p>
                         <div class="inf-btn pro">
+                            @if (auth()->user())
+                            <a href="{{ auth()->user()['is_admin']?'/order':'/my/order/new' }}" class="btn btn-pro btn-secondary btn-lg">Dashboard</a>
+                            @else
                             <a href="/login" class="btn btn-pro btn-secondary btn-lg">Login</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -141,7 +149,7 @@
                                         </div>
                                     </div>
                                     <div class="inf-btn pro" style="text-align: center">
-                                        <a href="/login" class="col-12 btn btn-pro btn-secondary btn-lg">Beli</a>
+                                        <a href="/my/buy/{{$productDetail['id']}}" class="col-12 btn btn-pro btn-secondary btn-lg">Beli</a>
                                     </div>
                                 </div>
                             </div>
@@ -195,8 +203,8 @@
                             <h3>Bekerja sesuai Syariat Islam</h3>
                         </div>
                         <div class="service-text-p">
-                            <p class="text-center">Peternakan Ibrahim Dadong Awok mulai merintis usaha bekerja sesuai syariat islam.
-                                Kambing qurban harus berumur 1 tahun atau memasuki tahun kedua.</p>
+                            <p class="text-center">Peternakan Ibrahim Dadong Awok mulai merintis usaha hingga saat ini dan juga kedapannya selalu bekerja sesuai syariat islam.
+                                Kambing qurban dan kambing aqiaah harus berumur 1 tahun atau memasuki tahun kedua.</p>
                         </div>
                     </div>
                 </article>
@@ -281,9 +289,9 @@
             <div class="container">
                 <p>2022 © Copyright Peternakan Ibrahim Dadong Awok with {{ env('APP_NAME') }} - All Rights Reserved.</p>
                 <ul class="netsocials">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.facebook.com/peternakkambingaslibanyuwangi/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                     {{-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> --}}
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.instagram.com/ibrahim_dadong_awok/"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="https://www.youtube.com/c/IbrahimDADONGAWOKfarm"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
                 </ul>
             </div>

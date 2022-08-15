@@ -51,10 +51,10 @@
                             <div class="card-body" id="productVariant">
                                 <div class="row">
                                     <div class="col-8">
-                                        <label>Jenis Produk /Berat</label>
+                                        <label>Jenis Produk/Berat - Stok</label>
                                     </div>
                                     <div class="col-3">
-                                        <label>Harga /Kg</label>
+                                        <label>Jumlah</label>
                                     </div>
                                     <div class="col-1">
                                         &nbsp;
@@ -66,8 +66,7 @@
                                             <select class="form-control" name="product_detail_id[]" required>
                                                 @foreach($item['productDetails'] as $variant)
                                                     <option value="{{ $variant['id'] }}">{{ $item['product']['name'] }}
-                                                        - {{ $variant['name'] }} {{ $variant['detail'] }} ({{ formatPrice($variant['price']) }}
-                                                        )
+                                                        - {{ $variant['name'] }} {{ $variant['detail'] }} ({{ formatPrice($variant['price']) }})
                                                     </option>
                                                 @endforeach
                                             </select>

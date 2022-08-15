@@ -21,8 +21,8 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-    <div class="login-logo">
-        <a href="#">{{ env('APP_NAME') }}</a>
+    <div class="login-logo" style="text-align: center">
+        <a href="#">Peternakan Ibrahim Dadong Awok</a>
     </div>
 
     @yield('content')

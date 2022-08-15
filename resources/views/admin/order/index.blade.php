@@ -21,7 +21,7 @@
                                 <th>Total Item</th>
                                 <th>Jumlah Pembayaran</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th>Lihat Detail</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -32,7 +32,13 @@
                                     <td>{{ $order ['shipping']}}</td>
                                     <td>{{ $order['total_item'] }} ({{ $order['total_weight'] }})</td>
                                     <td>{{ $order['total_payment'] }}</td>
-                                    <td>{{ $order['status'] }}</td>
+                                    @if($order['status'] === 'done')
+                                    <td>Selesai</td>
+                                    @elseif ($order['status'] === 'pending_payment')
+                                    <td>Pembayaran Tertunda</td>
+                                    @elseif($order['status'] === 'success_payment')
+                                    <td>Pembayaran Sukses</td>
+                                    @endif
                                     <td>
                                         <a href="/order/{{ $order['id'] }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                                     </td>

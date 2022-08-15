@@ -20,7 +20,7 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>Jenis</th>
-                                <th>Action</th>
+                                <th>Lihat Detail</th>
                             </tr>
                             </thead>
                             <tbody>

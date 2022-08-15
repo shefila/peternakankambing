@@ -46,7 +46,7 @@
                                 <b>Invoice #{{ $order->created_at->timestamp }}/{{ $order['id'] }}</b><br>
                                 <b>Status Pembayaran : {{ $order['status'] }}</b><br>
                                 @if($order['status'] === 'pending_payment')
-                                <a href="{{ route('my.order.detail.upload',$order['id']) }}" class="btn btn-success">Upload
+                                <a href="{{ route('my.order.detail.upload',$order['id']) }}" class="btn btn-success">Unggah
                                     Bukti Transfer</a>
                                 @endif
                             </div>

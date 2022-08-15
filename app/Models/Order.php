@@ -72,6 +72,17 @@ class Order extends Model
         return formatPrice($this->amount());
     }
 
+    public function getModalAttribute()
+    {
+        return formatPrice($this->modal());
+    }
+
+    public function getUntungAttribute()
+    {
+        return formatPrice(($this->amount() - $this->modal()));
+
+    }
+
     public function amount()
     {
         $total = 0;
@@ -105,5 +116,15 @@ class Order extends Model
         } else {
             return 0;
         }
+    }
+
+    public function modal()
+    {
+        $total = 0;
+        foreach ($this->orderDetails()->get() as $orderDetail) {
+            $total += $orderDetail['amount'] * $orderDetail['buy_price'];
+        }
+
+        return $total;
     }
 }

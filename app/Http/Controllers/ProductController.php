@@ -34,7 +34,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->back()->withMessage('Product created');
+        return redirect()->back()->withMessage('Produk Dibuat');
     }
 
     public function show(Product $product)
@@ -49,7 +49,8 @@ class ProductController extends Controller
             'detail'=>'required|string',
             'stock'=>'required|integer',
             'price'=>'required|integer',
-            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:1000'
+            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:1000',
+            'buy_price' =>'required|integer'
 
         ]);
 
@@ -58,6 +59,8 @@ class ProductController extends Controller
         $productDetails['detail'] = $request['detail'];
         $productDetails['stock'] = $request['stock'];
         $productDetails['price'] = $request['price'];
+        $productDetails['buy_price'] = $request['buy_price'];
+
         $image_path = null;
         if ($request->file('image') != '') {
             $main_image = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
@@ -67,21 +70,28 @@ class ProductController extends Controller
         $productDetails['image'] = $image_path;
         $productDetails->save();
 
-        return redirect()->back()->withMessage('Product Variant created');
+        $productDetails->historyStocks()->create([
+            'stock'=>$request['stock']
+        ]);
+
+        return redirect()->back()->withMessage('Jenis Produk Ditambah');
     }
 
     public function removeVariant(ProductDetail $productDetail)
     {
         if($productDetail->orderDetails()->count() == 0) {
             $productDetail->delete();
-            return redirect()->back()->withMessage('Product Variant deleted');
+            return redirect()->back()->withMessage('Jenis Produk Dihapus');
         }
-        return redirect()->back()->withMessage('Product Variant has in order details, can\'t deleted');
+        return redirect()->back()->withMessage('Jenis Produk Ada Di Pesanan, Tidak Dapat Dihapus');
     }
 
     public function updateVariant(Request $request, ProductDetail $productDetail)
     {
         $request->validate([
+            'detail' => 'required|string',
+            'price'=>'required|integer',
+            'buy_price'=>'required|integer',
             'stock'=>'required|integer|min:1',
             'image' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:1000'
         ]);
@@ -92,9 +102,19 @@ class ProductController extends Controller
             $image_path = '/storage/images/profile/' . $main_image;
             $productDetail['image'] = $image_path;
         }
+        $selisihStock = $request['stock'] - $productDetail['stock'];
+        $productDetail['detail'] = $request['detail'];
+        $productDetail['price'] = $request['price'];
+        $productDetail['buy_price'] = $request['buy_price'];
         $productDetail['stock'] = $request['stock'];
         $productDetail->save();
 
-        return redirect()->back()->withMessage('Product Variant updated');
+        if($selisihStock !== 0){
+            $productDetail->historyStocks()->create([
+                'stock'=>$selisihStock
+            ]);
+        }
+
+        return redirect()->back()->withMessage('Jenis Produk Diubah');
     }
 }

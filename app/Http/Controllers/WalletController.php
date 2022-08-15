@@ -33,7 +33,7 @@ class WalletController extends Controller
         $transaction['status'] = Transaction::STATUS_SUCCESS;
         $transaction->save();
 
-        return redirect()->route('withdrawal.index')->withMessage('Payment proof uploaded');
+        return redirect()->route('withdrawal.index')->withMessage('Bukti Transfer Berhasil di Unggah');
     }
 
     public function reject(Request $request, Transaction $transaction)

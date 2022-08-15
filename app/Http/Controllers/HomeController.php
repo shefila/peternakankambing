@@ -31,7 +31,7 @@ class HomeController extends Controller
         }
 
         $products = Product::with('productDetails')->get();
-        return view('home', compact('products'));
+        return redirect('/');
     }
 
     public function order(Request $request)
@@ -39,6 +39,26 @@ class HomeController extends Controller
         $currentUser = $request->user();
         $orders = $currentUser->orders()->where('status', '<>', 'draft')->get();
         return view('order.index', compact('orders'));
+    }
+
+    public function orderBuy(ProductDetail $productDetail)
+    {
+        if($productDetail['stock']==0){
+            return redirect()->back()->withErrors('Stock Habis');
+        }
+
+        $product = $productDetail->product;
+        $productDetails = $product->productDetails()->where('id',$productDetail['id'])->get()->toArray();
+        $cart = new cart();
+        $cart->destroy();
+        $cart->create([
+            'product' => $product->toArray(),
+            'productDetails' => $productDetails,
+            'product_detail_id' => $productDetail['id'],
+            'amount' => 1
+        ]);
+
+        return redirect('/my/order/new');
     }
 
     public function createOrder(Request $request)
@@ -66,7 +86,7 @@ class HomeController extends Controller
         $productDetails = $product->productDetails()->get()->toArray();
         $cart = new Cart();
         if ($cart->whereExist($product['id'])) {
-            return redirect()->back()->withErrors('You Only Can Choice 1 Item');
+            return redirect()->back()->withErrors('Kamu Hanya Bisa Membeli 1 Jenis Produk');
         } else {
             $cart->create([
                 'product' => $product->toArray(),
@@ -108,13 +128,13 @@ class HomeController extends Controller
         for ($i = 0; $i < count($request['product_detail_id']); $i++) {
             $productDetail = ProductDetail::find($request['product_detail_id'][$i]);
             if ($productDetail['stock'] < $request['amount'][$i]) {
-                return redirect()->back()->withErrors('Stock product ' . $productDetail->product['name'] . ' - ' . $productDetail['detail'] . ' only ' . $productDetail['stock'] . ' left');
+                return redirect()->back()->withErrors('Stock produk ' . $productDetail->product['name'] . ' - ' . $productDetail['detail'] . ' hanya ' . $productDetail['stock'] . ' tersisa');
             }
         }
-        DB::transaction(function () use ($request) {
-            $currentUser = $request->user();
+        $currentUser = $request->user();
+        $order = $currentUser->orders()->where('status', 'draft')->first();
+        DB::transaction(function () use ($request, $order, $currentUser) {
             $wallet = $currentUser->wallet;
-            $order = $currentUser->orders()->where('status', 'draft')->first();
             $order['shipping'] = $request['shipping'];
             $order['number'] = $request['number'];
             $order['shipping_address'] = $request['shipping_address'];
@@ -127,7 +147,8 @@ class HomeController extends Controller
                 $order->orderDetails()->create([
                     'product_detail_id' => $request['product_detail_id'][$i],
                     'amount' => $request['amount'][$i],
-                    'price' => $productDetail['price']
+                    'price' => $productDetail['price'],
+                    'buy_price' => $productDetail['buy_price'],
                 ]);
                 $productDetail['stock'] -= $request['amount'][$i];
                 $productDetail->save();
@@ -156,7 +177,7 @@ class HomeController extends Controller
         $cart = new Cart();
         $cart->destroy();
 
-        return redirect('my/order')->withMessage('Order created');
+        return redirect()->route('my.order.detail.upload',$order['id'])->withMessage('Oke, Silahkan lakukan transfer sesuai instruksi');
     }
 
     public function orderDetail(Order $order)
@@ -191,7 +212,7 @@ class HomeController extends Controller
         $order['payment_proof'] = $image_path;
         $order->save();
 
-        return redirect()->route('my.order.detail', $order['id'])->withMessage('Payment proof uploaded');
+        return redirect()->route('my.order.detail', $order['id'])->withMessage('Bukti Transfer Berhasil Diunggah');
     }
 
     public function withdrawalUser(Request $request)
@@ -219,7 +240,7 @@ class HomeController extends Controller
             'description' => json_encode($description)
         ]);
 
-        return redirect()->back()->withMessage('Penarikan di proses, menunggu konfirmasi admin');
+        return redirect()->back()->withMessage('Penarikan diproses, menunggu konfirmasi admin');
     }
 
     public function withdrawalUserCancel(Request $request, Transaction $transaction)

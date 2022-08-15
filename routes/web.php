@@ -33,6 +33,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/my/order', [HomeController::class, 'order'])->name('my.order');
+Route::get('/my/buy/{productDetail}', [HomeController::class, 'orderBuy'])->name('my.orderBuy');
 Route::get('/my/order/invoice/{order}', [HomeController::class, 'orderDetail'])->name('my.order.detail');
 Route::get('/my/order/invoice/{order}/upload', [HomeController::class, 'uploadForm'])->name('my.order.detail.upload');
 Route::patch('/my/order/invoice/{order}/upload', [HomeController::class, 'updatePayment'])->name('my.order.detail.upload.save');
@@ -70,9 +71,10 @@ Route::group(['middleware' => ['is_admin']], function () {
         'only' => ['index', 'show'],
     ]);
 
-    Route::apiResource('report', ReportController::class, [
-        'only' => ['index', 'store', 'show'],
-    ]);
+    Route::get('/report/{product}', [ReportController::class, 'index'])->name('report.index');
+    Route::get('/reports', [ReportController::class, 'reports'])->name('reports');
+    Route::get('/reports/stock', [ReportController::class, 'stockHistory'])->name('stock.history');
+
 
     Route::apiResource('saving', AdminSavingController::class, [
         'only' => ['index'],
@@ -88,7 +90,6 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::apiResource('datasaving', AdminDataSavingController::class, [
         'only' => ['index', 'show'],
     ]);
-
 
     Route::post('order/{order}/update-status', [OrderController::class, 'updateStatus']);
 });

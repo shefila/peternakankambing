@@ -44,6 +44,7 @@ class ProductSeeder extends Seeder
                 "detail" => "SIZE 36-40 KG",
                 "price" => 4000000.0,
                 "stock" => 20,
+                "buy_price" => 3000000.0,
 
 
             ],
@@ -55,6 +56,7 @@ class ProductSeeder extends Seeder
                 "detail" => "SIZE 31-35 KG",
                 "price" => 3000000.0,
                 "stock" => 10,
+                "buy_price" => 2000000.0,
 
 
             ],
@@ -66,6 +68,7 @@ class ProductSeeder extends Seeder
                 "detail" => "SIZE 26-30 KG",
                 "price" => 2500000.0,
                 "stock" => 15,
+                "buy_price" => 2000000.0,
 
 
             ],
@@ -77,6 +80,7 @@ class ProductSeeder extends Seeder
                 "detail" => "SIZE 21-25 KG",
                 "price" => 2000000.0,
                 "stock" => 10,
+                "buy_price" => 1000000.0,
 
 
             ],
@@ -88,6 +92,7 @@ class ProductSeeder extends Seeder
                 "detail" => "500 - 550 TUSUK",
                 "price" => 3100000.0,
                 "stock" => 10,
+                "buy_price" => 2500000.0,
 
 
             ],
@@ -99,6 +104,7 @@ class ProductSeeder extends Seeder
                 "detail" => "400 - 450 TUSUK",
                 "price" => 2800000.0,
                 "stock" => 5,
+                "buy_price" => 2000000.0,
 
 
             ],
@@ -110,6 +116,7 @@ class ProductSeeder extends Seeder
                 "detail" => "300 - 350 TUSUK",
                 "price" => 2500000.0,
                 "stock" => 10,
+                "buy_price" => 2000000.0,
 
             ],
         ]);

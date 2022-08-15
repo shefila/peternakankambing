@@ -63,13 +63,38 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('report.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-chart-line"></i>
-                            <p>
-                                Laporan Penjualan
-                            </p>
+                        <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-chart-line"></i>
+                          <p>
+                            Laporan
+                            <i class="fas fa-angle-left right"></i>
+                          </p>
                         </a>
-                    </li>
+                        <ul class="nav nav-treeview">
+                          @foreach (App\Models\Product::all() as $product)
+                          <li class="nav-item">
+                            <a href="{{ route('report.index', $product['id']) }}" class="nav-link">
+                              <i class="far fa-address-book nav-icon"></i>
+                              <p>Laporan Penjualan {{ $product['name'] }}</p>
+                            </a>
+                          </li>
+                          @endforeach
+
+                          <li class="nav-item">
+                            <a href="{{ route('reports') }}" class="nav-link">
+                              <i class="nav-icon fas fa-chart-line"></i>
+                              <p>Laporan Laba Rugi</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{ route('stock.history') }}" class="nav-link">
+                              <i class="nav-icon fas fa-box"></i>
+                              <p>History Stok</p>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </li>
 
                     <li class="nav-item">
                         <a href="{{ route('product.index') }}" class="nav-link">

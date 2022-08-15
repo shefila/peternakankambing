@@ -54,7 +54,7 @@
                                                 value="{{ $status }}" {{ $status == $order['status']?'selected':'' }}>{{ $status }}</option>
                                         @endforeach
                                     </select>
-                                    <button type="submit" class="btn btn-info btn-sm">update</button>
+                                    <button type="submit" class="btn btn-info btn-sm">ubah</button>
                                 </form>
 
                             </div>

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title') Daftar Laporan Penjualan {{ $product['name'] }} @stop
+@section('title') Daftar Laporan Laba Rugi @stop
 
 @section('content')
     <section class="content">
@@ -8,23 +8,32 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Daftar Laporan Penjualan {{ $product['name'] }}</h3>
+                        <h3 class="card-title">Daftar Laporan Laba Rugi</h3>
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <h4>Transaksi Selesai</h4>
-                                    <h2>{{ formatPrice($totalComplete) }}</h2>
+                                    <h4>Modal</h4>
+                                    <h2>{{formatPrice($modal)}}</h2>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <h4>Transaksi Tertunda</h4>
-                                    <h2>{{ formatPrice($totalPending) }}</h2>
+                                    <h4>Omset</h4>
+                                    <h2>{{formatPrice($omset)}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4>{{ $untungRugi >= 0 ? 'Untung':'Rugi'}}</h4>
+                                    <h2>{{formatPrice($untungRugi)}}</h2>
+
                                 </div>
                             </div>
                         </div>
@@ -46,23 +55,23 @@
                                 <th>Nama Pelanggan</th>
                                 <th>Alamat Pengiriman</th>
                                 <th>Total Item</th>
-                                <th>Tagihan</th>
-                                <th>Pengiriman</th>
-                                <th>Total Tagihan</th>
-                                <th>Status</th>
+                                <th>Omset</th>
+                                <th>Modal</th>
+                                <th>Untung</th>
+
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($orders as $order)
+                                @foreach($orders as $order)
                                 <tr>
                                     <td>{{ $order['created_at'] }}</td>
                                     <td>{{ $order['user']['name'] }}</td>
                                     <td>{{ $order['shipping_address'] }}</td>
-                                    <td>{{ $order['total_item'] }} item ({{ $order['total_weight'] }})</td>
+                                    <td>{{ $order['total_item'] }} item ({{ $order['total_weight'] }} )</td>
                                     <td>{{ $order['amount'] }}</td>
-                                    <td>{{ $order['shipping']}}</td>
-                                    <td>{{ $order['total_payment'] }}</td>
-                                    <td>{{ $order['status'] }}</td>
+                                    <td>{{ $order['modal'] }}</td>
+                                    <td>{{ $order['untung'] }}</td>
+
                                 </tr>
                             @endforeach
                             </tbody>

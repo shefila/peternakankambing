@@ -19,10 +19,10 @@
                             <hr>
                             <form action="{{ route('my.saving.upload.payment', $transaction['id']) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <label>Upload Bukti Transfer</label>
+                                <label>Unggah Bukti Transfer</label>
                                 <input type="file" name="payment_proof" class="form-control" required>
                                 <br>
-                                <button type="submit" class="btn btn-primary">Upload</button>
+                                <button type="submit" class="btn btn-primary">Unggah</button>
                             </form>
                         </div>
 

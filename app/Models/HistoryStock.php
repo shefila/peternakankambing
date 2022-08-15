@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderDetail extends Model
+class HistoryStock extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'product_detail_id',
-        'amount',
-        'price',
-        'buy_price',
+        'stock',
     ];
 
     public function productDetail()
@@ -21,8 +18,5 @@ class OrderDetail extends Model
         return $this->belongsTo(ProductDetail::class);
     }
 
-    public function order()
-    {
-        return $this->belongsTo(Order::class);
-    }
+
 }

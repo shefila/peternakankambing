@@ -6,9 +6,11 @@
     <section>
         <div class="card">
             <div class="card-body">
+                @if(!$hasSaving)
                 <button class="btn btn-success" data-toggle="modal" data-target="#addSaldo"><i class="fas fa-plus"></i>
                     Buat Rencana Tabungan Baru
                 </button>
+                @endif
             </div>
             <div class="card-body">
                 <div class="row">
@@ -59,8 +61,9 @@
                             <input type="number" min="0" class="form-control" name="target" required>
                         </div>
                         <div class="form-group">
-                            <label>Waktu yang ingin dicapai</label>
-                            <input type="date" class="form-control" name="due_date" required>
+                            <label>Waktu yang ingin dicapai adalah 1 bulan sebelum Hari Raya Idul Adha pada tanggal {!! $idulAdha !!}</label>
+                            <p></p>
+                            <input type="date" class="form-control" value="{{ !is_null($dueDate)?$dueDate->format('Y-m-d'):'' }}" readonly>
                         </div>
                         <div class="form-group">
                             <label>Rencana periode menabung rutin</label>

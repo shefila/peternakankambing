@@ -57,14 +57,24 @@
                                         <div class="card-footer">
                                             <div class="row">
                                                 <div class="col-12 text-left">
-                                                    <p><i class="fas fa-info-circle"></i> Detail : {{ $productDetail['detail'] }}</p>
-                                                    <p><i class="fas fa-coins"></i> Harga : {{ formatPrice($productDetail['price']) }}</p>
                                                     <form class="form-group row" action="{{ route('productVariant.update', $productDetail['id']) }}" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="PATCH">
+                                                        <label class="col-4 mt-2"><i class="fas fa-info-circle"></i> Detail :</label>
+                                                        <input type="text" class="form-control col-4" name="detail" value="{{ $productDetail['detail'] }}" required>
+                                                        <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
+
+                                                        <label class="col-4 mt-2"><i class="fas fa-coins"></i> Harga Jual :</label>
+                                                        <input type="number" class="form-control col-4" name="price" value="{{($productDetail['price']) }}" required>
+                                                        <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
+
+                                                        <label class="col-4 mt-2"><i class="fa fa-coins"></i> Harga Beli :</label>
+                                                        <input type="number" class="form-control col-4" name="buy_price" value="{{($productDetail['buy_price']) }}" required>
+                                                        <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
+
                                                         <label class="col-4 mt-2"><i class="fas fa-box"></i> Stock :</label>
-                                                        <input type="number" class="form-control col-4" name="stock" value="{{ $productDetail['stock'] }}" required onkeyup="$('#btn-update-productVariant-{{ $productDetail['id'] }}').show()">
-                                                        <button type="submit" class="btn btn-sm btn-primary col-4" style="display: none" id="btn-update-productVariant-{{ $productDetail['id'] }}">Update</button>
+                                                        <input type="number" class="form-control col-4" name="stock" value="{{ $productDetail['stock'] }}" required>
+                                                        <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -123,12 +133,16 @@
                             <input type="text" min="0" class="form-control" name="detail" required>
                         </div>
                         <div class="form-group">
-                            <label>Harga</label>
+                            <label>Harga Jual</label>
                             <input type="number" min="0" class="form-control" name="price" required>
                         </div>
                         <div class="form-group">
                             <label>Stok</label>
                             <input type="number" min="0" class="form-control" name="stock" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Harga Beli/Ekor</label>
+                            <input type="text" min="0" class="form-control" name="buy_price" required>
                         </div>
 
                     </div>

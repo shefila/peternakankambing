@@ -20,7 +20,7 @@
                                 <th>Nama Penabung</th>
                                 <th>Menyetorkan</th>
                                 <th>Bukti Pembayaran</th>
-                                <th>Action</th>
+                                <th>Lihat Detail</th>
                             </tr>
                             </thead>
                             <tbody>

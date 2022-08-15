@@ -32,6 +32,6 @@ class OrderController extends Controller
         $order['status'] = $request['status'];
         $order->save();
 
-        return redirect()->back()->withMessage('Order status updated');
+        return redirect()->back()->withMessage('Status Pesanan Diubah');
     }
 }

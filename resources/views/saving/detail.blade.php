@@ -65,13 +65,13 @@
                     </div>
                 </div>
                 <!-- /.card-header -->
-                @if($saving['progress_percent'] < 100)
+                {{-- @if($saving['progress_percent'] < 100) --}}
                 <div class="card-body">
                     <button class="btn btn-success" data-toggle="modal" data-target="#addSaving"><i
                             class="fas fa-plus"></i> Menabung sekarang
                     </button>
                 </div>
-                @endif
+                {{-- @endif --}}
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
@@ -80,7 +80,7 @@
                             <th>Jumlah</th>
                             <th>Bukti Pembayaran</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Lihat Detail</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -89,7 +89,19 @@
                                 <td>{{ $transaction['created_at']->format('Y-m-d H:i') }}</td>
                                 <td>{{ formatPrice($transaction['amount']) }}</td>
                                 <td>{!! $transaction['payment_proof_link'] !!}</td>
-                                <td>{{ $transaction['status'] }}</td>
+                                @if( $transaction['status'] === 'success')
+                                <td>Selesai</td>
+                                @elseif ( $transaction['status'] === 'pending')
+                                <td>Tertunda</td>
+                                @elseif( $transaction['status'] === 'waiting approval')
+                                <td>Menunggu Konfirmasi</td>
+                                @elseif( $transaction['status'] === 'failed')
+                                <td>Gagal</td>
+                                @elseif( $transaction['status'] === 'cancelled')
+                                <td>Batal</td>
+                                @endif
+                                {{-- <td>{{ $transaction['status'] }}</td> --}}
+
                                 <td>
                                     @if($transaction['status'] === \App\Models\Transaction::STATUS_PENDING)
                                         <a href="{{ route('my.saving.upload', $transaction['id']) }}"
