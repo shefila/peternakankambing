@@ -17,6 +17,7 @@
                                 <div class="card-body text-center">
                                     <h4>Modal</h4>
                                     <h2>{{formatPrice($modal)}}</h2>
+                                    <label>Harga beli kambing</label>
                                 </div>
                             </div>
                         </div>
@@ -25,6 +26,7 @@
                                 <div class="card-body text-center">
                                     <h4>Omset</h4>
                                     <h2>{{formatPrice($omset)}}</h2>
+                                    <label>Keseluruhan harga jual</label>
                                 </div>
                             </div>
                         </div>
@@ -33,6 +35,7 @@
                                 <div class="card-body text-center">
                                     <h4>{{ $untungRugi >= 0 ? 'Untung':'Rugi'}}</h4>
                                     <h2>{{formatPrice($untungRugi)}}</h2>
+                                    <label>Omset - harga beli</label>
 
                                 </div>
                             </div>
