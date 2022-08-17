@@ -136,6 +136,9 @@
                                         <h3><a href="#">{{ $productDetail['name'] }}</a></h3>
                                         <!-- homes List -->
                                         <span>{{ $productDetail['detail'] }}</span>
+                                               <p> <i class="fas fa-pen"></i>
+                                                 <span>{{ $productDetail['description'] }}</span>
+                                               </p>
                                         <ul class="homes-list clearfix">
                                             <li class="the-icons">
                                                 <i class="fas fa-box mr-2"></i>

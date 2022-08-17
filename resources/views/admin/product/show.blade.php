@@ -54,6 +54,7 @@
                                         <div class="card-body text-center">
                                             <img src="{{ $productDetail['image'] }}" style="height: 100px; width: auto;">
                                         </div>
+                                        <p class="" style="text-align: center">Deskripsi Produk: {{ $productDetail['description'] }}</p>
                                         <div class="card-footer">
                                             <div class="row">
                                                 <div class="col-12 text-left">
@@ -62,6 +63,12 @@
                                                         <input type="hidden" name="_method" value="PATCH">
                                                         <label class="col-4 mt-2"><i class="fas fa-info-circle"></i> Detail :</label>
                                                         <input type="text" class="form-control col-4" name="detail" value="{{ $productDetail['detail'] }}" required>
+                                                        <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
+
+                                                        <label class="col-4 mt-2"><i class="fas fa-info-circle"></i> Deskrpsi :</label>
+
+                                                        {{-- <input type="text" class="form-control col-4" name="description" value="{{ $productDetail['description'] }}" required> --}}
+                                                        <textarea class="form-control col-4" name="description" value="{{ $productDetail['description']}}" required></textarea>
                                                         <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
 
                                                         <label class="col-4 mt-2"><i class="fas fa-coins"></i> Harga Jual :</label>
@@ -131,6 +138,10 @@
                         <div class="form-group">
                             <label>Detail</label>
                             <input type="text" min="0" class="form-control" name="detail" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea type="text" min="0" class="form-control" name="description" required></textarea>
                         </div>
                         <div class="form-group">
                             <label>Harga Jual</label>

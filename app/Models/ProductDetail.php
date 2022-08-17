@@ -15,6 +15,7 @@ class ProductDetail extends Model
         'price',
         'stock',
         'buy_price',
+        'description',
     ];
 
     public function product()

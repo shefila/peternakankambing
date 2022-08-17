@@ -50,7 +50,9 @@ class ProductController extends Controller
             'stock'=>'required|integer',
             'price'=>'required|integer',
             'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:1000',
-            'buy_price' =>'required|integer'
+            'buy_price' =>'required|integer',
+            'description'=>'required|string',
+
 
         ]);
 
@@ -60,6 +62,9 @@ class ProductController extends Controller
         $productDetails['stock'] = $request['stock'];
         $productDetails['price'] = $request['price'];
         $productDetails['buy_price'] = $request['buy_price'];
+        $productDetails['description'] = $request['description'];
+
+
 
         $image_path = null;
         if ($request->file('image') != '') {
@@ -93,7 +98,9 @@ class ProductController extends Controller
             'price'=>'required|integer',
             'buy_price'=>'required|integer',
             'stock'=>'required|integer|min:1',
-            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:1000'
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:1000',
+            'description'=>'required|string',
+
         ]);
 
         if ($request->file('image') != '') {
@@ -104,6 +111,7 @@ class ProductController extends Controller
         }
         $selisihStock = $request['stock'] - $productDetail['stock'];
         $productDetail['detail'] = $request['detail'];
+        $productDetail['description'] = $request['description'];
         $productDetail['price'] = $request['price'];
         $productDetail['buy_price'] = $request['buy_price'];
         $productDetail['stock'] = $request['stock'];
