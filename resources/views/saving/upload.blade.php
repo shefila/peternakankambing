@@ -14,8 +14,8 @@
                             <h2 class="text-center">{{ formatPrice($transaction['amount']) }}</h2>
                             <p>No. Rekening Peternakan Ibrahim Dadong Awok</p>
                             <p>Nama Bank: BCA</p>
-                            <p>Nama Akun Bank : PT.Blalblabla</p>
-                            <p>No. Rekening : 123456789</p>
+                            <p>Nama Akun Bank : Sugiartha Mubarok</p>
+                            <p>No. Rekening : 8980570623</p>
                             <hr>
                             <form action="{{ route('my.saving.upload.payment', $transaction['id']) }}" method="POST" enctype="multipart/form-data">
                                 @csrf

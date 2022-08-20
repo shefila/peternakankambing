@@ -6,11 +6,11 @@
     <section>
         <div class="card">
             <div class="card-body">
-                @if(!$hasSaving)
+                {{-- @if(!$hasSaving) --}}
                 <button class="btn btn-success" data-toggle="modal" data-target="#addSaldo"><i class="fas fa-plus"></i>
                     Buat Rencana Tabungan Baru
                 </button>
-                @endif
+                {{-- @endif --}}
             </div>
             <div class="card-body">
                 <div class="row">

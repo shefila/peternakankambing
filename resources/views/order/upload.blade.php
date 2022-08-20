@@ -14,8 +14,8 @@
                             <h2 class="text-center">{{ $order['total_payment'] }}</h2>
                             <p>No. Rekening Peternakan Ibrahim Dadong Awok</p>
                             <p>Nama Bank: BCA</p>
-                            <p>Nama Akun Bank : PT.Blalblabla</p>
-                            <p>No. Rekening : 123456789</p>
+                            <p>Nama Akun Bank : Sugiartha Mubarok</p>
+                            <p>No. Rekening : 8980570623</p>
                             <hr>
                             <form action="{{ route('my.order.detail.upload.save', $order['id']) }}" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="_method" value="PATCH">
