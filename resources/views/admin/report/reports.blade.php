@@ -58,6 +58,7 @@
                                 <th>Nama Pelanggan</th>
                                 <th>Alamat Pengiriman</th>
                                 <th>Total Item</th>
+                                <th>Jenis Produk</th>
                                 <th>Omset</th>
                                 <th>Modal</th>
                                 <th>Untung</th>
@@ -71,6 +72,7 @@
                                     <td>{{ $order['user']['name'] }}</td>
                                     <td>{{ $order['shipping_address'] }}</td>
                                     <td>{{ $order['total_item'] }} item ({{ $order['total_weight'] }} )</td>
+                                    <td>{{ $order->orderDetails()->first()->productDetail->product['name'] }}</td>
                                     <td>{{ $order['amount'] }}</td>
                                     <td>{{ $order['modal'] }}</td>
                                     <td>{{ $order['untung'] }}</td>
