@@ -25,6 +25,11 @@ class AdminSavingController extends Controller
         $transaction['status'] = $request['status'];
         $transaction->save();
 
+        return response()->json([
+            'success'=>true,
+            'message'=>'Status Diubah'
+        ]);
+
         return redirect()->back()->withMessage('Status Diubah');
     }
 }
