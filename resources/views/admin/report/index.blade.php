@@ -23,7 +23,7 @@
                         <div class="col-6">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <h4>Transaksi Tertunda</h4>
+                                    <h4>Transaksi Verifikasi Pembayaran Tertunda</h4>
                                     <h2>{{ formatPrice($totalPending) }}</h2>
                                 </div>
                             </div>

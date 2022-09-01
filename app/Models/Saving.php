@@ -105,7 +105,7 @@ class Saving extends Model
 
     public function getProgressPercentAttribute()
     {
-        return $this->progressPercent() > 100 ? 100 : $this->progressPercent();
+        return $this->progressPercent() > 100 ? $this->progressPercent() : $this->progressPercent();
     }
 
     public function progressPercent()

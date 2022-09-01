@@ -14,7 +14,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = Order::where('status','<>','draft')->with('orderDetails', 'user')->get();
+        $orders = Order::where('status','<>','draft')->with('orderDetails', 'user')->orderBy('id', 'DESC')->get();
         return view('admin.order.index', compact('orders'));
     }
 

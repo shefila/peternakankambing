@@ -83,7 +83,7 @@
                           <li class="nav-item">
                             <a href="{{ route('reports') }}" class="nav-link">
                               <i class="nav-icon fas fa-chart-line"></i>
-                              <p>Laporan Laba Rugi</p>
+                              <p>Laporan Penjualan</p>
                             </a>
                           </li>
                           <li class="nav-item">

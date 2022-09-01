@@ -25,7 +25,7 @@
                                 <address>
                                     {{-- <strong>{{ env('APP_NAME') }}.</strong><br> --}}
                                     <strong>Peternakan Ibrahim Dadong Awok</strong><br>
-                                    Dusun Ngadirejo, RT. 02 RT. 04<br>
+                                    Dusun Bangorejo, RT. 02 RT. 04<br>
                                     Bangorejo, Banyuwangi, Jawa Timur<br>
                                     Telepon: (+62) 852 5722 9478<br>
                                     Email: ibrahimdadungawuk@gmail.com
@@ -54,7 +54,7 @@
                                                 value="{{ $status }}" {{ $status == $order['status']?'selected':'' }}>{{ $status }}</option>
                                         @endforeach
                                     </select>
-                                    <button type="submit" class="btn btn-info btn-sm">ubah</button>
+                                    <button type="submit" class="btn btn-info btn-sm">Ubah</button>
                                 </form>
 
                             </div>

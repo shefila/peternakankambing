@@ -68,4 +68,5 @@ class ReportController extends Controller
 
         return view('admin.report.stock', compact('historyStocks'));
     }
+
 }

@@ -65,7 +65,7 @@
                                                         <input type="text" class="form-control col-4" name="detail" value="{{ $productDetail['detail'] }}" required>
                                                         <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
 
-                                                        <label class="col-4 mt-2"><i class="fas fa-info-circle"></i> Deskrpsi :</label>
+                                                        <label class="col-4 mt-2"><i class="fas fa-info-circle"></i> Deskripsi :</label>
 
                                                         {{-- <input type="text" class="form-control col-4" name="description" value="{{ $productDetail['description'] }}" required> --}}
                                                         <textarea class="form-control col-4" name="description" value="{{ $productDetail['description']}}" required></textarea>
@@ -79,7 +79,7 @@
                                                         <input type="number" class="form-control col-4" name="buy_price" value="{{($productDetail['buy_price']) }}" required>
                                                         <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
 
-                                                        <label class="col-4 mt-2"><i class="fas fa-box"></i> Stock :</label>
+                                                        <label class="col-4 mt-2"><i class="fas fa-box"></i> Stok :</label>
                                                         <input type="number" class="form-control col-4" name="stock" value="{{ $productDetail['stock'] }}" required>
                                                         <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
                                                     </form>
@@ -92,7 +92,7 @@
                                                         method="POST">
                                                         @csrf
                                                         <button type="button" onclick="$('#updateImg').attr('action','/product/updateVariant/{{ $productDetail['id'] }}'); $('#stockVariant').val('{{ $productDetail['stock'] }}')" class="btn btn-sm btn-success" data-toggle="modal" data-target="#updateImage"><i
-                                                            class="fas fa-pen"></i> Update Gambar</button>
+                                                            class="fas fa-pen"></i> Ubah Gambar</button>
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-sm btn-danger"><i
                                                                 class="fas fa-trash"></i> Hapus</button>
@@ -140,7 +140,7 @@
                             <input type="text" min="0" class="form-control" name="detail" required>
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
+                            <label>Deskripsi</label>
                             <textarea type="text" min="0" class="form-control" name="description" required></textarea>
                         </div>
                         <div class="form-group">
@@ -174,7 +174,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Update Gambar</h4>
+                    <h4 class="modal-title">Ubah Gambar</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <form id="updateImg" action="#" method="POST" enctype="multipart/form-data">
@@ -182,6 +182,10 @@
                         @csrf
                         <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" name="stock" id="stockVariant" value="0">
+                        <input type="hidden" name="detail" value="{{$productDetail['detail']}}">
+                        <input type="hidden" name="description" value="{{$productDetail['description']}}">
+                        <input type="hidden" name="price" value="{{$productDetail['price']}}">
+                        <input type="hidden" name="buy_price" value="{{$productDetail['buy_price']}}">
                         <div class="form-group">
                             <label>Gambar</label>
                             <input name="image" type="file" class="form-control"

@@ -126,11 +126,11 @@
                                     <textarea class="form-control" name="shipping_address" rows="4"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>Pilihan</label>
+                                    <label>Metode Pengiriman</label>
                                     <select class="form-control" name="shipping" required>
                                         <option>-- Metode Pengiriman --</option>
-                                        <option value="DI AMBIL">DI AMBIL</option>
-                                        <option value="DI ANTAR">DI ANTAR</option>
+                                        <option value="DI AMBIL">Diambil pelanggan</option>
+                                        <option value="DI ANTAR">Diantar pihak peternakan</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

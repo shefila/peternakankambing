@@ -25,7 +25,7 @@
                                 <address>
                                     {{-- <strong>{{ env('APP_NAME') }}.</strong><br> --}}
                                     <strong>Peternakan Ibrahim Dadong Awok</strong><br>
-                                    Dusun Ngadirejo, RT. 02 RW.04<br>
+                                    Dusun Bangorejo, RT. 02 RW.04<br>
                                     Bangorejo, Banyuwangi, Jawa Timur<br>
                                     Telepon: (+62) 852 5722 9478<br>
                                     Email: ibrahimdadungawuk@gmail.com
@@ -44,7 +44,11 @@
                             <!-- /.col -->
                             <div class="col-sm-4 invoice-col">
                                 <b>Invoice #{{ $order->created_at->timestamp }}/{{ $order['id'] }}</b><br>
+                                @if (($order['status'] === 'pending_payment'))
+                                <b>Status Pembayaran : Menunggu Verifikasi</b><br>
+                                @else
                                 <b>Status Pembayaran : {{ $order['status'] }}</b><br>
+                                @endif
                                 @if($order['status'] === 'pending_payment')
                                 <a href="{{ route('my.order.detail.upload',$order['id']) }}" class="btn btn-success">Unggah
                                     Bukti Transfer</a>

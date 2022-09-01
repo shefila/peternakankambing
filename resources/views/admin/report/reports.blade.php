@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title') Daftar Laporan Laba Rugi @stop
+@section('title') Laporan Penjualan @stop
 
 @section('content')
     <section class="content">
@@ -8,7 +8,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Daftar Laporan Laba Rugi</h3>
+                        <h3 class="card-title">Laporan Penjualan</h3>
                     </div>
 
                     <div class="row">
@@ -17,7 +17,7 @@
                                 <div class="card-body text-center">
                                     <h4>Modal</h4>
                                     <h2>{{formatPrice($modal)}}</h2>
-                                    <label>Harga beli kambing</label>
+                                    <label>Harga beli produk yang terjual</label>
                                 </div>
                             </div>
                         </div>
@@ -26,16 +26,16 @@
                                 <div class="card-body text-center">
                                     <h4>Omset</h4>
                                     <h2>{{formatPrice($omset)}}</h2>
-                                    <label>Keseluruhan harga jual</label>
+                                    <label>Keseluruhan pendapatan penjualan</label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <h4>{{ $untungRugi >= 0 ? 'Untung':'Rugi'}}</h4>
+                                    <h4>{{ $untungRugi >= 0 ? 'Laba':'Rugi'}}</h4>
                                     <h2>{{formatPrice($untungRugi)}}</h2>
-                                    <label>Omset - harga beli</label>
+                                    <label>Omset - modal</label>
 
                                 </div>
                             </div>
@@ -59,9 +59,9 @@
                                 <th>Alamat Pengiriman</th>
                                 <th>Total Item</th>
                                 <th>Jenis Produk</th>
-                                <th>Omset</th>
-                                <th>Modal</th>
-                                <th>Untung</th>
+                                <th>Omset (Keseluruhan harga jual)</th>
+                                <th>Modal (Harga beli produk yang terjual)</th>
+                                <th>Laba (Omset-harga beli)</th>
 
                             </tr>
                             </thead>

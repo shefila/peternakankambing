@@ -48,7 +48,7 @@
                                     @if($order['status'] === 'done')
                                     <td>Selesai</td>
                                     @elseif ($order['status'] === 'pending_payment')
-                                    <td>Pembayaran Tertunda</td>
+                                    <td>Menunggu Verifikasi</td>
                                     @elseif($order['status'] === 'success_payment')
                                     <td>Pembayaran Sukses</td>
                                     @endif
