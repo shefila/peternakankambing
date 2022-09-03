@@ -178,7 +178,11 @@ class HomeController extends Controller
         $cart = new Cart();
         $cart->destroy();
 
-        return redirect()->route('my.order.detail.upload',$order['id'])->withMessage('Oke, Silahkan lakukan transfer sesuai instruksi');
+        if($order['status'] === 'success_payment'){
+            return redirect()->route('my.withdrawal')->withMessage('Pembayaran anda sudah berhasil');
+        } else {
+            return redirect()->route('my.order.detail.upload', $order['id'])->withMessage('Oke, Silahkan lakukan transfer sesuai instruksi');
+        }
     }
 
     public function orderDetail(Order $order)
