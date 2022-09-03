@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -205,6 +206,10 @@ class HomeController extends Controller
 
         $image_path = $order['payment_proof'];
         if ($request->file('payment_proof') != '') {
+            if($image_path !== null) {
+                $productImage = str_replace('/storage', '', $image_path);
+                Storage::delete('/public' . $productImage);
+            }
             $main_image = uniqid() . '.' . $request->file('payment_proof')->getClientOriginalExtension();
             $request->file('payment_proof')->move(storage_path('app/public/payment_proof'), $main_image);
             $image_path = '/storage/payment_proof/' . $main_image;

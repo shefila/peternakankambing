@@ -67,8 +67,8 @@
 
                                                         <label class="col-4 mt-2"><i class="fas fa-info-circle"></i> Deskripsi :</label>
 
-                                                        {{-- <input type="text" class="form-control col-4" name="description" value="{{ $productDetail['description'] }}" required> --}}
-                                                        <textarea class="form-control col-4" name="description" value="{{ $productDetail['description']}}" required></textarea>
+                                                        <input type="text" class="form-control col-4" name="description" value="{{ $productDetail['description'] }}" required>
+                                                        {{-- <textarea class="form-control col-4" name="description" value="{{ $productDetail['description']}}" required></textarea> --}}
                                                         <button type="submit" class="btn btn-sm btn-primary col-4">Ubah</button>
 
                                                         <label class="col-4 mt-2"><i class="fas fa-coins"></i> Harga Jual :</label>

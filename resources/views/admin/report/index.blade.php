@@ -9,6 +9,20 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Daftar Laporan Penjualan {{ $product['name'] }}</h3>
+                        <br>
+                        @if(isset($_GET['start_date']) && isset($_GET['end_date']))
+                            @if($_GET['start_date'] === $_GET['end_date'] && $_GET['start_date'] === now()->format('Y-m-d'))
+                                <p>Filter Date : Today</p>
+                            @elseif($_GET['start_date'] === $_GET['end_date'] && $_GET['start_date'] !== now()->format('Y-m-d'))
+                                <p>Filter Date : {{ \Carbon\Carbon::createFromFormat('Y-m-d', $_GET['start_date'])->format('j F Y') }}</p>
+                            @else
+                                <p>Filter Date
+                                    : {{ \Carbon\Carbon::createFromFormat('Y-m-d', $_GET['start_date'])->format('j F Y') }}
+                                    - {{ \Carbon\Carbon::createFromFormat('Y-m-d', $_GET['end_date'])->format('j F Y') }}</p>
+                            @endif
+                        @else
+                            <p>Filter Date : All time</p>
+                        @endif
                     </div>
 
                     <div class="row">
