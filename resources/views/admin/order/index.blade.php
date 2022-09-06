@@ -15,6 +15,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
+                                <th>Tanggal</th>
                                 <th>Nama Pelanggan</th>
                                 <th>Alamat Pengiriman</th>
                                 <th>Pengiriman</th>
@@ -27,6 +28,7 @@
                             <tbody>
                             @foreach($orders as $order)
                                 <tr>
+                                    <td>{{ $order['updated_at'] }}</td>
                                     <td>{{ $order['user']['name'] }}</td>
                                     <td>{{ $order['shipping_address'] }}</td>
                                     <td>{{ $order ['shipping']}}</td>

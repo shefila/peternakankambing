@@ -66,13 +66,13 @@
                 </div>
                 <!-- /.card-header -->
 
-                @if($saving['progress_percent'] < 100)
+                {{-- @if($saving['progress_percent'] < 100) --}}
                 <div class="card-body">
                     <button class="btn btn-success" data-toggle="modal" data-target="#addSaving"><i
                             class="fas fa-plus"></i> Menabung sekarang
                     </button>
                 </div>
-                @endif
+                {{-- @endif --}}
 
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">

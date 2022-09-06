@@ -15,6 +15,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
+                                <th>Tanggal</th>
                                 <th>Nama Pelanggan</th>
                                 <th>Saldo</th>
                             </tr>
@@ -22,6 +23,7 @@
                             <tbody>
                             @foreach($users as $user)
                                 <tr>
+                                    <td>{{ $user['created_at'] }}</td>
                                     <td>{{ $user['name'] }}</td>
                                     <td>{{ formatPrice($user['wallet']['cash']) }}</td>
                                 </tr>

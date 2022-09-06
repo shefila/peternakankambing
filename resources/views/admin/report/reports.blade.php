@@ -73,9 +73,9 @@
                                 <th>Alamat Pengiriman</th>
                                 <th>Total Item</th>
                                 <th>Jenis Produk</th>
-                                <th>Omset (Keseluruhan harga jual)</th>
+                                <th>Omset (Keseluruhan pendapatan penjualan)</th>
                                 <th>Modal (Harga beli produk yang terjual)</th>
-                                <th>Laba (Omset-harga beli)</th>
+                                <th>Laba (Omset-modal)</th>
 
                             </tr>
                             </thead>
